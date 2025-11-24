@@ -3,12 +3,26 @@
  */
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    
+    public static <T> ArrayList<T> removeDuplicates(ArrayList<T> list) {
+        Set<T> arr = new HashSet<>(list);
+        ArrayList<T> newList = new ArrayList<>(arr);
+        return newList;
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ArrayList<Integer> one = new ArrayList<>(List.of(1, 2, 3, 3, 3, 5));
+        ArrayList<Integer> oneR = removeDuplicates(one);
+        System.out.println(oneR);
+
+        ArrayList<String> two = new ArrayList<>(List.of("Red", "Red", "Red", "Red", "green", "green"));
+        ArrayList<String> twoR = removeDuplicates(two);
+        System.out.println(twoR);
     }
 }
